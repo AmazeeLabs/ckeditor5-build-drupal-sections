@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor 5 – balloon editor build – development sample</title>
+	<style>
+		body {
+			max-width: 800px;
+			margin: 20px auto;
+		}
+
+		.ck-drupal-media-widget image {
+			max-width: 100%;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+
+<h1>CKEditor 5 – balloon editor build – development sample</h1>
+
+<div id="editor">
+</div>
+
+<script src="../build/ckeditor.js"></script>
+<script>
+	SectionsEditor.create( document.querySelector( '#editor' ) )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+
+</body>
+</html>
