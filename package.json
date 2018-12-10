@@ -25,9 +25,9 @@
     "build"
   ],
   "devDependencies": {
-    "ckeditor5-template": "^0.0.1",
-    "ckeditor5-drupal-media": "^0.0.1",
-    "ckeditor5-drupal-linkit": "^0.0.1",
+    "@amazee/ckeditor5-template": "^0.0.1",
+    "@amazee/ckeditor5-drupal-media": "^0.0.1",
+    "@amazee/ckeditor5-drupal-linkit": "^0.0.1",
     "@ckeditor/ckeditor5-autoformat": "^10.0.4",
     "@ckeditor/ckeditor5-basic-styles": "^10.1.0",
     "@ckeditor/ckeditor5-block-quote": "^10.1.1",
