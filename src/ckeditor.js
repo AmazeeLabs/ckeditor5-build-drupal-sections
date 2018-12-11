@@ -12,6 +12,9 @@ import List from '@ckeditor/ckeditor5-list/src/list';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import Template from '@amazee/ckeditor5-template/src/template';
+import Linkit from '@amazee/ckeditor5-drupal-linkit/src/linkit';
+import DrupalMedia from '@amazee/ckeditor5-drupal-media/src/drupalmedia';
 
 export default class SectionsEditor extends BalloonEditorBase {}
 
@@ -23,11 +26,13 @@ SectionsEditor.builtinPlugins = [
 	Italic,
 	BlockQuote,
 	Heading,
-	Link,
 	List,
 	Paragraph,
 	Table,
-	TableToolbar
+	TableToolbar,
+	Template,
+	Linkit,
+	DrupalMedia,
 ];
 
 // Editor configuration.
@@ -35,7 +40,7 @@ SectionsEditor.defaultConfig = {
 	templates: {
 		root: {
 			label: 'Root',
-			template: '<div class="root" ck-type="container" ck-contains="text text-media gallery"></div>',
+			template: '<div class="root" ck-type="container" ck-contains="text text_media gallery"></div>',
 		},
 		text: {
 			label: 'Text',
@@ -53,7 +58,7 @@ SectionsEditor.defaultConfig = {
 					'<div class="text-media__wrapper">' +
 						'<div class="text-media__content" ck-type="text"></div>' +
 						'<div class="text-media__media" ck-type="placeholder" ck-conversions="image"></div>' +
-					'</div>',
+					'</div>' +
 				'</div>',
 		},
 		image: {

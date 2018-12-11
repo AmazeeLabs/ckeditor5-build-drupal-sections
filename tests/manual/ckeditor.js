@@ -3,7 +3,7 @@
  * For licensing, see LICENSE.md.
  */
 
-import SectionsEditor from '../../build/ckeditor';
+import SectionsEditor from '../../src/ckeditor';
 
 SectionsEditor.create( document.querySelector( '#editor' ) )
 	.then( editor => {
