@@ -14,6 +14,7 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import Template from '@amazee/ckeditor5-template/src/template';
 import Linkit from '@amazee/ckeditor5-drupal-linkit/src/linkit';
 import DrupalMedia from '@amazee/ckeditor5-drupal-media/src/drupalmedia';
+import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar';
 
 export default class SectionsEditor extends BalloonEditorBase {}
 
@@ -29,6 +30,7 @@ SectionsEditor.builtinPlugins = [
 	Paragraph,
 	Table,
 	TableToolbar,
+	BlockToolbar,
 	Template,
 	Linkit,
 	DrupalMedia,
@@ -95,8 +97,6 @@ SectionsEditor.defaultConfig = {
 	},
 	toolbar: {
 		items: [
-			'heading',
-			'|',
 			'bold',
 			'italic',
 			'link',
@@ -115,6 +115,7 @@ SectionsEditor.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
+	blockToolbar: [ 'heading', 'insertTable' ],
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
