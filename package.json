@@ -1,6 +1,6 @@
 {
   "name": "@amazee/ckeditor5-build-drupal-sections",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "The Drupal sections editor build of CKEditor 5.",
   "keywords": [
     "wysiwyg",
@@ -26,8 +26,8 @@
   ],
   "devDependencies": {
     "@amazee/ckeditor5-drupal-linkit": "^0.0.3",
-    "@amazee/ckeditor5-drupal-media": "^0.0.9",
-    "@amazee/ckeditor5-template": "^0.0.6",
+    "@amazee/ckeditor5-drupal-media": "^0.0.10",
+    "@amazee/ckeditor5-template": "^0.0.7",
     "@ckeditor/ckeditor5-autoformat": "^10.0.4",
     "@ckeditor/ckeditor5-basic-styles": "^10.1.0",
     "@ckeditor/ckeditor5-block-quote": "^10.1.1",
