@@ -87,14 +87,17 @@ SectionsEditor.defaultConfig = {
 			}
 		}
 	},
-	drupalMediaSelector( type, operation, callback ) {
+	drupalMediaSelector: { callback: ( type, operation, callback ) => {
 		callback( operation === 'add' ? '300' : '400' );
-	},
-	drupalMediaRenderer( uuid, display, callback ) {
+	} },
+	drupalMediaRenderer: { callback: ( uuid, display, callback ) => {
 		window.setTimeout( () => {
 			callback( `<img src="https://picsum.photos/800/${ uuid }"/>` );
 		}, 2000 );
-	},
+	} },
+	drupalLinkSelector: { callback: ( existingValues, callback ) => {
+		callback( { href: 'http://www.drupal.org' } );
+	} },
 	toolbar: {
 		items: [
 			'bold',
