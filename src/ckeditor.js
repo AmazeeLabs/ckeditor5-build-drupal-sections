@@ -15,6 +15,7 @@ import Template from '@amazee/ckeditor5-template/src/template';
 import Linkit from '@amazee/ckeditor5-drupal-linkit/src/linkit';
 import DrupalMedia from '@amazee/ckeditor5-drupal-media/src/drupalmedia';
 import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar';
+import Validation from '@amazee/ckeditor5-template/src/validation';
 
 export default class SectionsEditor extends BalloonEditorBase {}
 
@@ -34,6 +35,7 @@ SectionsEditor.builtinPlugins = [
 	Template,
 	Linkit,
 	DrupalMedia,
+	Validation
 ];
 
 // Editor configuration.
