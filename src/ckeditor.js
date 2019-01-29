@@ -16,6 +16,8 @@ import Linkit from '@amazee/ckeditor5-drupal-linkit/src/linkit';
 import DrupalMedia from '@amazee/ckeditor5-drupal-media/src/drupalmedia';
 import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar';
 import Validation from '@amazee/ckeditor5-template/src/validation';
+import ButtonElement from '@amazee/ckeditor5-drupal-linkit/src/elements/buttonelement';
+import TemplateEditing from '@amazee/ckeditor5-template/src/templateediting';
 
 export default class SectionsEditor extends BalloonEditorBase {}
 
@@ -34,8 +36,10 @@ SectionsEditor.builtinPlugins = [
 	BlockToolbar,
 	Template,
 	Linkit,
+	TemplateEditing,
 	DrupalMedia,
-	Validation
+	Validation,
+	ButtonElement
 ];
 
 // Editor configuration.
@@ -49,7 +53,7 @@ SectionsEditor.defaultConfig = {
 			label: 'Text',
 			template:
 				'<div class="text" id="">' +
-					'<h2 class="text__headline" ck-type="text">Insert a headline</h2>' +
+					'<h2 class="text__headline" ck-type="text" ck-plain="true">Insert a headline</h2>' +
 					'<div class="text__content" ck-type="text"></div>' +
 				'</div>',
 		},
@@ -57,11 +61,12 @@ SectionsEditor.defaultConfig = {
 			label: 'Text & Media',
 			template:
 				'<div class="text-media" id="" data-layout="right">' +
-					'<h2 class="text-media__headline" ck-type="text">Insert a headline</h2>' +
+					'<h2 class="text-media__headline" ck-type="text" ck-plain="true">Insert a headline</h2>' +
 					'<div class="text-media__wrapper">' +
 						'<div class="text-media__content" ck-type="text"></div>' +
 						'<div class="text-media__media" ck-type="placeholder" ck-conversions="image"></div>' +
 					'</div>' +
+					'<div class="text-media__cta" ck-type="button">Call to action!</div>' +
 				'</div>',
 		},
 		image: {
