@@ -1,4 +1,5 @@
 // The editor creator to use.
+import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import BalloonEditorBase from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
@@ -18,11 +19,26 @@ import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar'
 import Validation from '@amazee/ckeditor5-template/src/validation';
 import ButtonElement from '@amazee/ckeditor5-drupal-linkit/src/elements/buttonelement';
 import TemplateEditing from '@amazee/ckeditor5-template/src/templateediting';
+import RemoteControl from '@amazee/ckeditor5-template/src/remotecontrol';
+
+import Placeholder from '@amazee/editor-components/components/placeholder/placeholder';
+import '@amazee/editor-components/components/container/container';
+import '@amazee/editor-components/components/gallery/gallery';
 
 export default class SectionsEditor extends BalloonEditorBase {}
 
+class PlaceholderConfig extends Plugin {
+	init() {
+		const templates = this.editor.config.get( 'templates' );
+		Placeholder.availableSections = Object.keys( templates )
+			.map( id => ( { id, label: templates[ id ].label, icon: templates[ id ].icon } ) );
+	}
+}
+
 // Plugins to include in the build.
 SectionsEditor.builtinPlugins = [
+	PlaceholderConfig,
+	RemoteControl,
 	Essentials,
 	Autoformat,
 	Bold,
@@ -51,6 +67,7 @@ SectionsEditor.defaultConfig = {
 		},
 		text: {
 			label: 'Text',
+			icon: 'text',
 			template:
 				'<div class="text" id="">' +
 					'<h2 class="text__headline" ck-type="text" ck-plain="true">Insert a headline</h2>' +
@@ -59,6 +76,7 @@ SectionsEditor.defaultConfig = {
 		},
 		text_media: {
 			label: 'Text & Media',
+			icon: 'text_media',
 			template:
 				'<div class="text-media" id="" data-layout="right">' +
 					'<h2 class="text-media__headline" ck-type="text" ck-plain="true">Insert a headline</h2>' +
@@ -71,12 +89,16 @@ SectionsEditor.defaultConfig = {
 		},
 		image: {
 			label: 'Image',
-			template: '<div class="text-media__media" ck-type="drupal-media" data-media-type="image" data-media-uuid=""></div>',
+			icon: 'image',
+			template: '<div class="media-wrapper">' +
+				'<div class="text-media__media" ck-type="drupal-media" data-media-type="image" data-media-uuid=""></div>' +
+				'</div>',
 		},
 		gallery: {
 			label: 'Gallery',
+			icon: 'carousel',
 			template:
-				'<div class="gallery" ck-type="gallery" ck-contains="image"></div>',
+				'<div class="gallery_wrapper"><div class="gallery" ck-type="gallery" ck-contains="image"></div></div>',
 		}
 	},
 	masterTemplate: 'root',
@@ -89,8 +111,8 @@ SectionsEditor.defaultConfig = {
 			type: 'dropdown',
 			label: 'Layout',
 			options: {
-				left: 'Media on the left' ,
-				right: 'Media on the right' ,
+				left: 'Media on the left',
+				right: 'Media on the right',
 			}
 		}
 	},

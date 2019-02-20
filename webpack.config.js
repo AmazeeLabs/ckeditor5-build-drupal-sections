@@ -59,11 +59,15 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.svg$/,
+				test: /^((?!theme).)*(\.css|\.svg)$/,
 				use: [ 'raw-loader' ]
 			},
 			{
-				test: /\.css$/,
+				test: /theme\/.*\.svg$/,
+				use: [ 'raw-loader' ]
+			},
+			{
+				test: /theme\/.*\.css$/,
 				use: [
 					{
 						loader: 'style-loader',

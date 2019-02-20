@@ -1,6 +1,6 @@
 {
   "name": "@amazee/ckeditor5-build-drupal-sections",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "The Drupal sections editor build of CKEditor 5.",
   "keywords": [
     "wysiwyg",
@@ -25,9 +25,10 @@
     "build"
   ],
   "devDependencies": {
-    "@amazee/ckeditor5-drupal-linkit": "^0.0.8",
-    "@amazee/ckeditor5-drupal-media": "^0.0.15",
-    "@amazee/ckeditor5-template": "^0.0.13",
+    "@amazee/ckeditor5-drupal-linkit": "^0.0.10",
+    "@amazee/ckeditor5-drupal-media": "^0.0.16",
+    "@amazee/ckeditor5-template": "^0.0.14",
+    "@amazee/editor-components": "https://github.com/AmazeeLabs/editor-components.git",
     "@ckeditor/ckeditor5-autoformat": "^10.0.4",
     "@ckeditor/ckeditor5-basic-styles": "^10.1.0",
     "@ckeditor/ckeditor5-block-quote": "^10.1.1",
@@ -63,5 +64,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "preversion": "npm run build; if [ -n \"$(git status src/ckeditor.js build/ --porcelain)\" ]; then git add -u src/ckeditor.js build/ && git commit -m 'Internal: Build.'; fi"
+  },
+  "dependencies": {
+    "@amazee/editor-components": "https://github.com/AmazeeLabs/editor-components.git"
   }
 }
