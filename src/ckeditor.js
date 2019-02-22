@@ -20,10 +20,13 @@ import Validation from '@amazee/ckeditor5-template/src/validation';
 import ButtonElement from '@amazee/ckeditor5-drupal-linkit/src/elements/buttonelement';
 import TemplateEditing from '@amazee/ckeditor5-template/src/templateediting';
 import RemoteControl from '@amazee/ckeditor5-template/src/remotecontrol';
+import TabsElement from '@amazee/ckeditor5-template/src/elements/tabselement';
 
 import Placeholder from '@amazee/editor-components/components/placeholder/placeholder';
+
 import '@amazee/editor-components/components/container/container';
 import '@amazee/editor-components/components/gallery/gallery';
+import '@amazee/editor-components/components/tabs/tabs';
 
 export default class SectionsEditor extends BalloonEditorBase {}
 
@@ -55,6 +58,7 @@ SectionsEditor.builtinPlugins = [
 	TemplateEditing,
 	DrupalMedia,
 	Validation,
+	TabsElement,
 	ButtonElement
 ];
 
@@ -63,7 +67,7 @@ SectionsEditor.defaultConfig = {
 	templates: {
 		root: {
 			label: 'Root',
-			template: '<div class="root" ck-type="container" ck-contains="text text_media gallery"></div>',
+			template: '<div class="root" ck-type="container" ck-contains="text text_media gallery tabs"></div>',
 		},
 		text: {
 			label: 'Text',
@@ -99,10 +103,27 @@ SectionsEditor.defaultConfig = {
 			icon: 'carousel',
 			template:
 				'<div class="gallery_wrapper"><div class="gallery" ck-type="gallery" ck-contains="image"></div></div>',
+		},
+		tabs: {
+			label: 'Tabs',
+			icon: 'misc',
+			template:
+				'<div class="tabs_wrapper"><div class="tabs" ck-type="tabs" ck-contains="tab"></div></div>',
+		},
+		tab: {
+			label: 'Tab',
+			template:
+				'<div class="tab_wrapper" data-tab-title="" data-default-tab=""><div class="tab" ck-type="text"></div></div>',
 		}
 	},
 	masterTemplate: 'root',
 	templateAttributes: {
+		'data-tab-title': {
+			type: 'custom',
+		},
+		'data-default-tab': {
+			type: 'custom',
+		},
 		'id': {
 			type: 'textfield',
 			label: 'HTML ID',
