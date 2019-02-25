@@ -67,7 +67,7 @@ SectionsEditor.defaultConfig = {
 	templates: {
 		root: {
 			label: 'Root',
-			template: '<div class="root" ck-type="container" ck-contains="text text_media gallery tabs"></div>',
+			template: '<div class="root" ck-type="container" ck-contains="text text_media gallery tabs columns"></div>',
 		},
 		text: {
 			label: 'Text',
@@ -98,11 +98,32 @@ SectionsEditor.defaultConfig = {
 				'<div class="text-media__media" ck-type="drupal-media" data-media-type="image" data-media-uuid=""></div>' +
 				'</div>',
 		},
+		video: {
+			label: 'Image',
+			icon: 'video',
+			template: '<div class="media-wrapper">' +
+				'<div class="text-media__media" ck-type="drupal-media" data-media-type="image" data-media-uuid=""></div>' +
+				'</div>',
+		},
+		media: {
+			label: 'Media',
+			icon: 'misc',
+			template: '<div class="media-item" ck-type="placeholder" ck-conversions="image video"></div>',
+		},
 		gallery: {
 			label: 'Gallery',
 			icon: 'carousel',
 			template:
-				'<div class="gallery_wrapper"><div class="gallery" ck-type="gallery" ck-contains="image"></div></div>',
+				'<div class="gallery_wrapper"><div class="gallery" ck-type="gallery" ck-contains="media"></div></div>',
+		},
+		columns: {
+			label: 'Columns',
+			icon: 'misc',
+			template:
+			'<div class="two-columns"><div class="two-col-wrapper">' +
+				'<div class="column-a" ck-type="container" ck-contains="text media gallery"></div>' +
+				'<div class="column-b" ck-type="container" ck-contains="text media gallery"></div>' +
+			'</div></div>'
 		},
 		tabs: {
 			label: 'Tabs',
@@ -113,7 +134,7 @@ SectionsEditor.defaultConfig = {
 		tab: {
 			label: 'Tab',
 			template:
-				'<div class="tab_wrapper" data-tab-title="" data-default-tab=""><div class="tab" ck-type="text"></div></div>',
+				'<div class="tab_wrapper" data-tab-title="" data-default-tab=""><div class="tab" ck-type="gallery" ck-contains="image"></div></div>',
 		}
 	},
 	masterTemplate: 'root',

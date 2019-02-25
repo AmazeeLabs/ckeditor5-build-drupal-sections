@@ -13,6 +13,14 @@
 			max-width: 100%;
 			display: block;
 		}
+		.two-col-wrapper {
+			display: flex;
+		}
+
+		.column-a, .column-b {
+			flex-shrink: 0;
+			flex-grow: 1;
+		}
 	</style>
 </head>
 <body>
@@ -27,7 +35,6 @@
 	SectionsEditor.create( document.querySelector( '#editor' ) )
 		.then( editor => {
 			window.editor = editor;
-			editor.setData('<div class="root"><div class="text"><h2 class="text__headline">Test</h2><div class="text__content">Test</div></div></div>')
 		} )
 		.catch( err => {
 			console.error( err.stack );
