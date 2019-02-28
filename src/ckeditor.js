@@ -21,12 +21,15 @@ import ButtonElement from '@amazee/ckeditor5-drupal-linkit/src/elements/buttonel
 import TemplateEditing from '@amazee/ckeditor5-template/src/templateediting';
 import RemoteControl from '@amazee/ckeditor5-template/src/remotecontrol';
 import TabsElement from '@amazee/ckeditor5-template/src/elements/tabselement';
+import MergeEditing from '@amazee/ckeditor5-template/src/mergeediting';
 
 import Placeholder from '@amazee/editor-components/components/placeholder/placeholder';
 
 import '@amazee/editor-components/components/container/container';
 import '@amazee/editor-components/components/gallery/gallery';
 import '@amazee/editor-components/components/tabs/tabs';
+import '@amazee/editor-components/components/text_conflict/text_conflict';
+import '@amazee/editor-components/components/text_conflict/text_conflict_option/text_conflict_option';
 
 export default class SectionsEditor extends BalloonEditorBase {}
 
@@ -59,7 +62,8 @@ SectionsEditor.builtinPlugins = [
 	DrupalMedia,
 	Validation,
 	TabsElement,
-	ButtonElement
+	ButtonElement,
+	MergeEditing
 ];
 
 // Editor configuration.
@@ -67,7 +71,13 @@ SectionsEditor.defaultConfig = {
 	templates: {
 		root: {
 			label: 'Root',
-			template: '<div class="root" ck-type="container" ck-contains="text text_media gallery tabs columns"></div>',
+			template: '<div class="root" ck-type="container" ck-contains="text paragraph text_media gallery tabs columns"></div>',
+		},
+		paragraph: {
+			label: 'Paragraph',
+			icon: 'text',
+			template:
+				'<div class="paragraph__wrapper"><p class="paragraph" ck-type="text"></p></div>',
 		},
 		text: {
 			label: 'Text',

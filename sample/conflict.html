@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor 5 – balloon editor build – development sample</title>
+	<style>
+		body {
+			max-width: 800px;
+			margin: 20px auto;
+		}
+
+		.ck-drupal-media-widget image {
+			max-width: 100%;
+			display: block;
+		}
+		.two-col-wrapper {
+			display: flex;
+		}
+
+		.column-a, .column-b {
+			flex-shrink: 0;
+			flex-grow: 1;
+		}
+	</style>
+</head>
+<body>
+
+<h1>CKEditor 5 – balloon editor build – development sample</h1>
+
+<div id="editor">
+	<div class="root">
+		<div class="paragraph__wrapper" added><div class="paragraph">Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</div></div>
+		<div class="paragraph__wrapper" removed><div class="paragraph">Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.</div></div>
+		<div class="paragraph__wrapper">
+			<ck-conflict-text class="paragraph" label="Resolve this!">
+				<ck-conflict-option label="Source"><p class="paragraph">A</p></ck-conflict-option>
+				<ck-conflict-option label="Left"><p class="paragraph">B</p></ck-conflict-option>
+				<ck-conflict-option label="Right"><p class="paragraph">C</p></ck-conflict-option>
+				<ck-conflict-option label="Empty"><p class="paragraph"></p></ck-conflict-option>
+			</ck-conflict-text>
+		</div>
+	</div>
+
+</div>
+
+<script src="../build/ckeditor.js"></script>
+<script>
+	SectionsEditor.create( document.querySelector( '#editor' ) )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+
+</body>
+</html>
