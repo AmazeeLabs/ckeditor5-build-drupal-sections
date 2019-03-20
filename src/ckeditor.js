@@ -30,6 +30,8 @@ import '@amazee/editor-components/components/gallery/gallery';
 import '@amazee/editor-components/components/tabs/tabs';
 import '@amazee/editor-components/components/text_conflict/text_conflict';
 import '@amazee/editor-components/components/text_conflict/text_conflict_option/text_conflict_option';
+import '@amazee/editor-components/components/media_conflict/media_conflict';
+import '@amazee/editor-components/components/media_conflict/media_conflict_option/media_conflict_option';
 
 export default class SectionsEditor extends BalloonEditorBase {}
 
@@ -71,7 +73,7 @@ SectionsEditor.defaultConfig = {
 	templates: {
 		root: {
 			label: 'Root',
-			template: '<div class="root" ck-type="container" ck-contains="text paragraph text_media gallery tabs columns"></div>',
+			template: '<div class="root" ck-type="container" ck-contains="media image paragraph text_media gallery tabs columns"></div>',
 		},
 		paragraph: {
 			label: 'Paragraph',
@@ -105,13 +107,13 @@ SectionsEditor.defaultConfig = {
 			label: 'Image',
 			icon: 'image',
 			template: '<div class="media-wrapper">' +
-				'<div class="text-media__media" ck-type="drupal-media" data-media-type="image" data-media-uuid=""></div>' +
+				'<div class="text-media__image__media" ck-type="drupal-media" data-media-type="image" data-media-uuid=""></div>' +
 				'</div>',
 		},
 		video: {
 			label: 'Image',
 			icon: 'video',
-			template: '<div class="media-wrapper">' +
+			template: '<div class="media-wrapper-video">' +
 				'<div class="text-media__media" ck-type="drupal-media" data-media-type="image" data-media-uuid=""></div>' +
 				'</div>',
 		},
